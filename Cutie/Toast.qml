@@ -1,4 +1,5 @@
-import QtQuick 2.14
+import QtQuick 2.15
+import QtQuick.Window 2.15
 
 Rectangle {
     property real fadingTime: 300
@@ -11,11 +12,11 @@ Rectangle {
     }
 
     id: toastBody
-    width: toastText.width + 20
-    height: toastText.height + 10
-    radius: 15
+    width: toastText.width + 4 * dpi.value
+    height: toastText.height + 2 * dpi.value
+    radius: dpi.value
     opacity: 0
-    color: (atmospheresHandler.variant == "dark") ? "#ffffff" : "#000000"
+    color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
     anchors {
         horizontalCenter: parent.horizontalCenter
     }
@@ -23,7 +24,8 @@ Rectangle {
     Text {
         id: toastText
         text: ""
-        color: (atmospheresHandler.variant == "dark") ? "#000000" : "#ffffff"
+        font.pixelSize: 3 * dpi.value
+        color: (themeVariantConfig.value == "dark") ? "#000000" : "#ffffff"
         anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter

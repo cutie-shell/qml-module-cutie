@@ -1,5 +1,4 @@
 module Cutie
-plugin qmlcutieplugin
 
 CutieToast 1.0 Toast.qml
 CutieToastHandler 1.0 ToastHandler.qml

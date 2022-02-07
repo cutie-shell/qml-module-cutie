@@ -7,7 +7,7 @@ ListView {
 
     id: root
     z: Infinity
-    spacing: 5
+    spacing: dpi.value
     anchors {
         fill: parent
         bottomMargin: parent.height / 5
