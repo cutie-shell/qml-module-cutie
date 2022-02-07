@@ -14,6 +14,7 @@ Rectangle {
         id: buttonText
         text: root.buttonText
         font.pixelSize: 3 * dpi.value
+        font.family: "Lato"
         anchors {
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter

@@ -25,6 +25,7 @@ Rectangle {
         id: toastText
         text: ""
         font.pixelSize: 3 * dpi.value
+        font.family: "Lato"
         color: (themeVariantConfig.value == "dark") ? "#000000" : "#ffffff"
         anchors {
             horizontalCenter: parent.horizontalCenter
