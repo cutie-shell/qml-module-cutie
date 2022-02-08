@@ -34,6 +34,7 @@ Window {
     StackView {
         id: stackView
         anchors.fill: parent
+        anchors.bottomMargin: panelSize
 
         property real panelSize: 0
         property real previousImSize: 0
