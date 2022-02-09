@@ -7,3 +7,4 @@ CutieButton 1.0 Button.qml
 CutiePage 1.0 Page.qml
 CutieHeader 1.0 Header.qml
 CutieTextField 1.0 TextField.qml
+CutieLabel 1.0 Label.qml
