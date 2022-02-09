@@ -37,22 +37,10 @@ Window {
         anchors.bottomMargin: panelSize
 
         property real panelSize: 0
-        property real previousImSize: 0
         property real imSize: Qt.inputMethod.keyboardRectangle.height
 
         onImSizeChanged: {
-            if (imSize <= 0 && previousImSize > 0) {
-                imShowAnimation.stop()
-                imHideAnimation.start()
-            } else if (imSize > 0 && previousImSize <= 0) {
-                imHideAnimation.stop()
-                imShowAnimation.to = imSize
-                imShowAnimation.start()
-            } else {
-                panelSize = imSize
-            }
-
-            previousImSize = imSize
+            panelSize = imSize
         }
 
         clip: true
@@ -93,28 +81,6 @@ Window {
                 duration: 500
                 easing.type: Easing.OutQuad
             }
-        }
-
-        SequentialAnimation {
-            id: imHideAnimation
-            PauseAnimation {
-                duration:  200
-            }
-            NumberAnimation {
-                target: stackView
-                property: 'panelSize'
-                to: 0
-                duration:200
-                easing.type: Easing.InOutQuad
-            }
-        }
-
-        NumberAnimation {
-            id: imShowAnimation
-            target: stackView
-            property: 'panelSize'
-            duration:  200
-            easing.type: Easing.InOutQuad
         }
     }
 }
