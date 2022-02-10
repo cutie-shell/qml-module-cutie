@@ -9,6 +9,9 @@ Window {
     id: win
     visible: true
     color: "transparent"
+    contentOrientation: ((orientationItem.value == Qt.LandscapeOrientation) ? Qt.InvertedLandscapeOrientation 
+        : ((orientationItem.value == Qt.InvertedLandscapeOrientation) ? Qt.LandscapeOrientation 
+        : orientationItem.value))
 
     property alias pageStack: stackView
     property alias initialPage: stackView.initialItem
@@ -25,6 +28,13 @@ Window {
         id: dpiConfig
         key: "/home/cutie/homeScreen/dpi"
         defaultValue: Screen.pixelDensity
+    }
+
+    property ConfigurationValue orientationConfig: orientationItem
+    ConfigurationValue {
+        id: orientationItem
+        key: "/home/cutie/homeScreen/orientation"
+        defaultValue: Qt.PortraitOrientation
     }
 
     property CutieToastHandler toastHandler: toastHandler
@@ -69,11 +79,44 @@ Window {
 
     StackView {
         id: stackView
-        anchors.fill: parent
-        anchors.bottomMargin: panelSize
+        anchors.centerIn: parent
+        anchors.verticalCenterOffset: ((orientationItem.value == Qt.PortraitOrientation) ? -panelSize/2
+            : ((orientationItem.value == Qt.InvertedPortraitOrientation) ? panelSize/2
+            : 0))
+        anchors.horizontalCenterOffset: ((orientationItem.value == Qt.LandscapeOrientation) ? panelSize/2
+            : ((orientationItem.value == Qt.InvertedLandscapeOrientation) ? -panelSize/2
+            : 0))
+        rotation: Screen.angleBetween(orientationItem.value, Screen.primaryOrientation)
+        width: ((rotation % 180 == 0) 
+            ? parent.width : parent.height)
+        height: ((rotation % 180 == 0) 
+            ? parent.height : parent.width) - panelSize
+            
+        Behavior on rotation {
+            RotationAnimator { 
+                duration: 200
+                direction: RotationAnimator.Shortest
+            }
+        }
+
+        Behavior on height {
+            NumberAnimation { duration: 200 }
+        }
+
+        Behavior on width {
+            NumberAnimation { duration: 200 }
+        }
+
+        Behavior on anchors.verticalCenterOffset {
+            NumberAnimation { duration: 200 }
+        }
+
+        Behavior on anchors.horizontalCenterOffset {
+            NumberAnimation { duration: 200 }
+        }
 
         property real panelSize: 0
-        property real imSize: Qt.inputMethod.keyboardRectangle.height
+        property real imSize: (((orientationItem.value == Qt.PortraitOrientation) || (orientationItem.value == Qt.InvertedPortraitOrientation)) ? Qt.inputMethod.keyboardRectangle.height : Qt.inputMethod.keyboardRectangle.width)
 
         onImSizeChanged: {
             panelSize = imSize
