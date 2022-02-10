@@ -12,25 +12,6 @@ Window {
 
     property alias pageStack: stackView
     property alias initialPage: stackView.initialItem
-    property Component cover
-    property Item coverInstance
-
-    onActiveChanged: {
-        if (coverInstance) {
-            coverInstance.visible = !win.active
-        }
-    }
-
-    Component.onCompleted: {
-        if (cover) {
-            coverInstance = cover.createObject(win, {
-                visible: false,
-                anchors: {
-                    centerIn: win
-                }
-            });
-        }
-    }
 
     property ConfigurationValue themeVariantConfig: themeVariant
     ConfigurationValue {
@@ -55,7 +36,7 @@ Window {
         id: statusBar
         width: parent.width
         height: 5 * dpi.value
-        visible: (cover) ? win.active : true
+        visible: win.active
 
         anchors {
             left: parent.left
@@ -90,7 +71,6 @@ Window {
         id: stackView
         anchors.fill: parent
         anchors.bottomMargin: panelSize
-        visible: (cover) ? win.active : true
 
         property real panelSize: 0
         property real imSize: Qt.inputMethod.keyboardRectangle.height
