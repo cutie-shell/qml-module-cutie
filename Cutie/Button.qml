@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import QtFeedback 5.0
 
 Rectangle {
     signal clicked()
@@ -21,9 +22,21 @@ Rectangle {
         }
         color: (themeVariantConfig.value == "dark") ? "#000000" : "#ffffff"
     }
+
+    HapticsEffect {
+        id: rumbleEffect
+        attackIntensity: 0.0
+        attackTime: 250
+        intensity: 1.0
+        duration: 100
+        fadeTime: 250
+        fadeIntensity: 0.0
+    }
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
+            rumbleEffect.start();
             root.clicked();
         }
     }

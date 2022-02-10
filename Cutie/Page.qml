@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 import QtGraphicalEffects 1.15
+import QtFeedback 5.0
 import Cutie 1.0
 
 import org.nemomobile.configuration 1.0
@@ -19,6 +20,16 @@ Page {
 
     Behavior on y {
         NumberAnimation { duration: 200 }
+    }
+
+    HapticsEffect {
+        id: rumbleEffect
+        attackIntensity: 0.0
+        attackTime: 250
+        intensity: 1.0
+        duration: 100
+        fadeTime: 250
+        fadeIntensity: 0.0
     }
 
     MouseArea {
@@ -48,6 +59,7 @@ Page {
             if (drag.axis == Drag.XAxis) {
                 if (pageRoot.index > 0 && Math.abs(pageRoot.x) > threshold) {
                     mouse.accepted = true;
+                    rumbleEffect.start();
                     pageRoot.view.pop();
                 } else {
                     pageRoot.x = 0;
@@ -57,6 +69,7 @@ Page {
                 pageRoot.y = 0;
                 if (selIndex >= 0 && selIndex < pageRoot.menu.count) {
                     let callback = pageRoot.menu.get(selIndex).callback;
+                    rumbleEffect.start();
                     if (callback) callback();
                 }
             }
@@ -91,6 +104,11 @@ Page {
                 height: 7 * dpi.value
                 width: parent.width
                 opacity: ((pageRoot.y > 2*height/3 + height*(pageRoot.menu.count - index - 1)) && (pageRoot.y < height*(pageRoot.menu.count - index) + 2*height/3)) ? 1 : 0.6
+                
+                onOpacityChanged: {
+                    if (opacity == 1.0) rumbleEffect.start();
+                }
+                
                 Rectangle {
                     height: 5 * dpi.value
                     color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
