@@ -74,7 +74,7 @@ Page {
         width: dpi.value * 5
         height: dpi.value * 5
         x: - dpi.value * 2.5
-        y: dpi.value * 2.5
+        y: dpi.value * 7.5
 
         Behavior on opacity {
             NumberAnimation { duration: 200 }
