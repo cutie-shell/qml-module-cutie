@@ -7,6 +7,12 @@ Item {
 
     property alias text: inputElement.text
 
+    signal accepted()
+
+    function selectAll() {
+        inputElement.selectAll();
+    }
+
     TextInput {
         id: inputElement
         color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
@@ -14,6 +20,9 @@ Item {
         font.family: "Lato"
         anchors.fill: parent
         anchors.margins: 2.5 * dpi.value
+        onAccepted: {
+            root.accepted();
+        }
     }
 
     Rectangle {
