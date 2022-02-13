@@ -44,9 +44,32 @@ Window {
 
     Item {
         id: statusBar
-        width: parent.width
-        height: 5 * dpi.value
+        anchors.centerIn: parent
+        anchors.verticalCenterOffset: ((orientationItem.value == Qt.PortraitOrientation) ? 3*dpi.value-win.height/2
+            : ((orientationItem.value == Qt.InvertedPortraitOrientation) ? win.height/2-3*dpi.value
+            : (orientationItem.value == Qt.LandscapeOrientation) ? -win.height/2
+            : win.height/2))
+        anchors.horizontalCenterOffset: ((orientationItem.value == Qt.LandscapeOrientation) ? win.width/2-3*dpi.value
+            : ((orientationItem.value == Qt.InvertedLandscapeOrientation) ? 3*dpi.value-win.width/2
+            : (orientationItem.value == Qt.PortraitOrientation) ? -win.width/2
+            : win.width/2))
+        rotation: Screen.angleBetween(orientationItem.value, Screen.primaryOrientation)
         visible: win.active
+            
+        Behavior on rotation {
+            RotationAnimator { 
+                duration: 200
+                direction: RotationAnimator.Shortest
+            }
+        }
+
+        Behavior on anchors.verticalCenterOffset {
+            NumberAnimation { duration: 200 }
+        }
+
+        Behavior on anchors.horizontalCenterOffset {
+            NumberAnimation { duration: 200 }
+        }
 
         anchors {
             left: parent.left
