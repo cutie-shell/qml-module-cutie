@@ -2,13 +2,15 @@ TEMPLATE = lib
 CONFIG += qt plugin
 QT += qml quick dbus
 
-DESTDIR = Cutie
 TARGET  = qmlcutieplugin
 
 SOURCES += plugin.cpp
 
-HEADERS += plugin.h
+HEADERS += plugin.h \
+           pagestatusclass.h \
+           truncationmodeclass.h
 
-lib.files = Cutie
+lib.files = Cutie Sailfish
 lib.path = $$[QT_INSTALL_QML]
-INSTALLS += lib
+target.path = $$[QT_INSTALL_QML]/Cutie
+INSTALLS += lib target

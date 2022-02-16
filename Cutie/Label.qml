@@ -1,23 +1,15 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
+import Cutie 1.0
 
-Item {
-    property string text
-    property alias font: labelText.font
-    property double fontSize: 3
-
-    id: root
-    width: labelText.width + 4 * dpi.value
-    height: labelText.height + fontSize * 4/3 * dpi.value
-    Text {
-        id: labelText
-        text: root.text
-        font.pixelSize: root.fontSize * dpi.value
-        font.family: "Lato"
-        anchors {
-            horizontalCenter: root.horizontalCenter
-            verticalCenter: root.verticalCenter
-        }
-        color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
-    }
+Label {
+    id: labelText
+    z: 3
+    text: root.text
+    font.pixelSize: 3 * dpi.value
+    font.family: "Lato"
+    color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
+    clip: truncationMode != CutieTruncationMode.None
+    property int truncationMode: CutieTruncationMode.None
 }

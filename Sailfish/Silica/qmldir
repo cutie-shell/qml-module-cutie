@@ -1,0 +1,22 @@
+module Sailfish.Silica
+
+plugin qmlcutieplugin ../../Cutie/
+
+ApplicationWindow 1.0 ../../Cutie/ApplicationInternal.qml
+Page 1.0 ../../Cutie/Page.qml
+SilicaFlickable 1.0 ../../Cutie/Flickable.qml
+SilicaGridView 1.0 ../../Cutie/GridView.qml
+SilicaListView 1.0 ../../Cutie/ListView.qml
+ListItem 1.0 ../../Cutie/ListItem.qml
+PullDownMenu 1.0 ../../Cutie/PullDownMenu.qml
+Label 1.0 ../../Cutie/Label.qml
+Button 1.0 ../../Cutie/Button.qml
+PageHeader 1.0 ../../Cutie/Header.qml
+BackgroundItem 1.0 ../../Cutie/BackgroundItem.qml
+ContextMenu 1.0 ../../Cutie/ContextMenu.qml
+MenuItem 1.0 ../../Cutie/MenuItem.qml
+BusyIndicator 1.0 ../../Cutie/BusyIndicator.qml
+Slider 1.0 ../../Cutie/Slider.qml
+VerticalScrollDecorator 1.0 ../../Cutie/VerticalScrollDecorator.qml
+singleton Theme 1.0 ../../Cutie/Theme.qml
+singleton Screen 1.0 ../../Cutie/Screen.qml

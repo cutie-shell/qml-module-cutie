@@ -1,7 +1,10 @@
+#pragma once
 #include <QDebug>
 #include <QtQuick>
 #include <QtQml/qqml.h>
 #include <QtQml/QQmlExtensionPlugin>
+#include "pagestatusclass.h"
+#include "truncationmodelclass.h"
 
 class CutiePlugin : public QQmlExtensionPlugin
 {

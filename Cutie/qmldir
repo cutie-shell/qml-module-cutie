@@ -1,5 +1,7 @@
 module Cutie
 
+plugin qmlcutieplugin
+
 CutieToast 1.0 Toast.qml
 CutieToastHandler 1.0 ToastHandler.qml
 CutieWindow 1.0 Window.qml
@@ -8,3 +10,17 @@ CutiePage 1.0 Page.qml
 CutieHeader 1.0 Header.qml
 CutieTextField 1.0 TextField.qml
 CutieLabel 1.0 Label.qml
+CutieApplicationInternal 1.0 ApplicationInternal.qml
+CutieFlickable 1.0 Flickable.qml
+CutieGridView 1.0 GridView.qml
+CutieListView 1.0 ListView.qml
+CutieListItem 1.0 ListItem.qml
+CutiePullDownMenu 1.0 PullDownMenu.qml
+CutieMenuItem 1.0 MenuItem.qml
+CutieContextMenu 1.0 ContextMenu.qml
+CutieBackgroundItem 1.0 BackgroundItem.qml
+CutieBusyIndicator 1.0 BusyIndicator.qml
+CutieSlider 1.0 Slider.qml
+CutieVerticalScrollDecorator 1.0 VerticalScrollDecorator.qml
+singleton CutieTheme 1.0 Theme.qml
+singleton CutieScreen 1.0 Screen.qml

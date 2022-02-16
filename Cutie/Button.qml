@@ -1,25 +1,25 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 import QtFeedback 5.0
+import Cutie 1.0
 
-Rectangle {
-    signal clicked()
-    property string buttonText: ""
-
+Button {
     id: root
-    width: buttonText.width + 4 * dpi.value
-    height: buttonText.height + 2 * dpi.value
-    radius: dpi.value
-    color: (themeVariantConfig.value == "dark") ? "#CCffffff" : "#80000000"
-    Text {
-        id: buttonText
-        text: root.buttonText
+    z: 3
+    width: contentItem.implicitWidth + 4 * dpi.value
+    height: contentItem.implicitHeight + 2 * dpi.value
+    background: Rectangle {
+        anchors.fill: parent
+        radius: dpi.value
+        color: (themeVariantConfig.value == "dark") ? "#CCffffff" : "#80000000"
+    }
+
+    contentItem: CutieLabel {
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
         font.pixelSize: 3 * dpi.value
         font.family: "Lato"
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            verticalCenter: parent.verticalCenter
-        }
         color: (themeVariantConfig.value == "dark") ? "#000000" : "#ffffff"
     }
 
@@ -33,11 +33,7 @@ Rectangle {
         fadeIntensity: 0.0
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            rumbleEffect.start();
-            root.clicked();
-        }
+    onClicked: {
+        rumbleEffect.start();
     }
 }

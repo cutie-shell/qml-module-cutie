@@ -1,31 +1,12 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 
-Item {
+TextField {
     id: root
+    z: 3
     height: 8 * dpi.value
-
-    property alias text: inputElement.text
-
-    signal accepted()
-
-    function selectAll() {
-        inputElement.selectAll();
-    }
-
-    TextInput {
-        id: inputElement
-        color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
-        font.pixelSize: 3 * dpi.value
-        font.family: "Lato"
-        anchors.fill: parent
-        anchors.margins: 2.5 * dpi.value
-        onAccepted: {
-            root.accepted();
-        }
-    }
-
-    Rectangle {
+    background: Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -33,4 +14,7 @@ Item {
         height: 0.25 * dpi.value
         color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
     }
+    color: (themeVariantConfig.value == "dark") ? "#ffffff" : "#000000"
+    font.pixelSize: 3 * dpi.value
+    font.family: "Lato"
 }

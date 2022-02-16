@@ -8,16 +8,16 @@ import org.nemomobile.configuration 1.0
 
 Item {
     id: root
-    visible: true
     height: 10 * dpi.value
+    width: parent.width
 
-    property string text: ""
+    property string title: ""
 
     Text {
         id: headerText
-        text: root.text
+        text: root.title
         anchors.top: root.top
-        anchors.topMargin: 7 * dpi.value
+        anchors.topMargin: 3 * dpi.value
         anchors.left: parent.left
         anchors.leftMargin: 3 * dpi.value
         font.pixelSize: 5 * dpi.value
