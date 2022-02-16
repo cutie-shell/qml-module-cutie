@@ -4,7 +4,7 @@
 #include <QtQml/qqml.h>
 #include <QtQml/QQmlExtensionPlugin>
 #include "pagestatusclass.h"
-#include "truncationmodelclass.h"
+#include "truncationmodeclass.h"
 #include "standardpaths.h"
 
 class CutiePlugin : public QQmlExtensionPlugin
