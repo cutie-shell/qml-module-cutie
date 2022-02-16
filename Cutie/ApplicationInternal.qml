@@ -109,17 +109,17 @@ Rectangle {
     StackView {
         id: stackView
         anchors.centerIn: parent
-        anchors.verticalCenterOffset: ((orientationItem.value == Qt.PortraitOrientation) ? 3*dpi.value-panelSize/2
-            : ((orientationItem.value == Qt.InvertedPortraitOrientation) ? panelSize/2-3*dpi.value
+        anchors.verticalCenterOffset: ((orientationItem.value == Qt.PortraitOrientation) ? -panelSize/2
+            : ((orientationItem.value == Qt.InvertedPortraitOrientation) ? panelSize/2
             : 0))
-        anchors.horizontalCenterOffset: ((orientationItem.value == Qt.LandscapeOrientation) ? panelSize/2-3*dpi.value
-            : ((orientationItem.value == Qt.InvertedLandscapeOrientation) ? 3*dpi.value-panelSize/2
+        anchors.horizontalCenterOffset: ((orientationItem.value == Qt.LandscapeOrientation) ? panelSize/2
+            : ((orientationItem.value == Qt.InvertedLandscapeOrientation) ? -panelSize/2
             : 0))
         rotation: Screen.angleBetween(orientationItem.value, Screen.primaryOrientation)
         width: ((rotation % 180 == 0) 
-            ? parent.width: parent.height )
+            ? parent.width : parent.height)
         height: ((rotation % 180 == 0) 
-            ? parent.height : parent.width) - panelSize
+            ? parent.height - 5*dpi.value : parent.width - 5*dpi.value) - panelSize
             
         Behavior on rotation {
             RotationAnimator { 
