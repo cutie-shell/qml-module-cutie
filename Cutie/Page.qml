@@ -64,10 +64,10 @@ Page {
                 GradientStop { position: 0.0; color:(themeVariantConfig.value == "dark") ? "#ffffff" : "#000000" }
                 GradientStop { position: 0.5; color: "transparent" }
             }
-            width: dpi.value * 6
-            height: dpi.value * 6
-            x: - dpi.value * 3
-            y: dpi.value * 3
+            width: dpi.value * 5
+            height: dpi.value * 5
+            x: - dpi.value * 2.5
+            y: dpi.value * 6
 
             Behavior on opacity {
                 NumberAnimation { duration: 200 }

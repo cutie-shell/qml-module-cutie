@@ -8,7 +8,7 @@ import org.nemomobile.configuration 1.0
 
 Item {
     id: root
-    height: 10 * dpi.value
+    height: 16 * dpi.value
     width: parent.width
 
     property string title: ""
@@ -17,10 +17,10 @@ Item {
         id: headerText
         text: root.title
         anchors.top: root.top
-        anchors.topMargin: 3 * dpi.value
+        anchors.topMargin: 5 * dpi.value
         anchors.left: parent.left
         anchors.leftMargin: 3 * dpi.value
-        font.pixelSize: 5 * dpi.value
+        font.pixelSize: 6 * dpi.value
         font.family: "Lato"
         font.weight: Font.Light
         anchors {

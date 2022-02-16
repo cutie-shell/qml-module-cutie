@@ -23,11 +23,17 @@ Item {
     property color primaryColor: (themeVariant.value == "dark") ? "#ffffff" : "#000000"
     property color highlightColor: (themeVariant.value == "dark") ? "#ffffff" : "#000000"
     property color secondaryHighlightColor: (themeVariant.value == "dark") ? "#ffffff" : "#000000"
+    property color secondaryColor: (themeVariant.value == "dark") ? "#ffffff" : "#000000"
     property real highlightBackgroundOpacity: 0.3
     property real itemSizeMedium: dpiConfig.value * 4
+    property real itemSizeLarge: dpiConfig.value * 6
+    property real fontSizeLarge: dpiConfig.value * 4
     property real fontSizeSmall: dpiConfig.value * 2
     property real fontSizeExtraSmall: dpiConfig.value
+    property real iconSizeSmall: dpiConfig.value * 2
 
+    property real paddingSmall: dpiConfig.value * 1
+    property real paddingMedium: dpiConfig.value * 2
     property real paddingLarge: dpiConfig.value * 3
     property real horizontalPageMargin: dpiConfig.value * 3
 

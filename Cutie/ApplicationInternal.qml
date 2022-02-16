@@ -119,7 +119,7 @@ Rectangle {
         width: ((rotation % 180 == 0) 
             ? parent.width : parent.height)
         height: ((rotation % 180 == 0) 
-            ? parent.height - 5*dpi.value : parent.width - 5*dpi.value) - panelSize
+            ? parent.height : parent.width) - panelSize
             
         Behavior on rotation {
             RotationAnimator { 

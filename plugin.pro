@@ -4,11 +4,13 @@ QT += qml quick dbus
 
 TARGET  = qmlcutieplugin
 
-SOURCES += plugin.cpp
+SOURCES += plugin.cpp \
+           standardpaths.cpp
 
 HEADERS += plugin.h \
            pagestatusclass.h \
-           truncationmodeclass.h
+           truncationmodeclass.h \
+           standardpaths.h
 
 lib.files = Cutie Sailfish
 lib.path = $$[QT_INSTALL_QML]
