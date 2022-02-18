@@ -25,6 +25,7 @@ Item {
     property color secondaryHighlightColor: (themeVariant.value == "dark") ? "#ffffff" : "#000000"
     property color secondaryColor: (themeVariant.value == "dark") ? "#ffffff" : "#000000"
     property real highlightBackgroundOpacity: 0.3
+    property real itemSizeSmall: dpiConfig.value * 2
     property real itemSizeMedium: dpiConfig.value * 4
     property real itemSizeLarge: dpiConfig.value * 6
     property real fontSizeExtraLarge: dpiConfig.value * 5
