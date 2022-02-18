@@ -10,8 +10,10 @@ import org.nemomobile.configuration 1.0
 Item {
     id: root
     z: 3
-    height: content.height + (menu ? (menu.visible ? menu.height : 0) : 0)
+    height: content.height + ((menu) ? (menu.visible ? menu.implicitHeight : 0) : 0)
     width: parent.width
+
+    signal clicked()
 
     property Item menu: null
     
@@ -28,6 +30,7 @@ Item {
     onMenuChanged: {
         menu.parent = root;
         menu.y = content.height
+        height = Qt.binding(function() { return content.height + (menu.visible ? menu.implicitHeight : 0) })
     }
 
     function remorseAction(string, action, timeout) {
@@ -42,7 +45,6 @@ Item {
         onPressAndHold: {
             if (menu) {
                 menu.visible = true;
-                root.height += menu.implicitHeight
             }
         }
 
@@ -50,8 +52,11 @@ Item {
             if (menu) {
                 if (menu.visible) {
                     menu.visible = false;
-                    root.height -= menu.implicitHeight;
+                } else {
+                    root.clicked();
                 }
+            } else {
+                root.clicked();
             }
         }
     }
