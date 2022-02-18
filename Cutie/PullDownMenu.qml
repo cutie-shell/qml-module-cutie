@@ -26,17 +26,17 @@ Column {
         ignoreUnknownSignals: true
         function onContentYChanged() {
             if (flickable.contentY < 0 && flickable.dragging) {
-                if (flickable.anchors.topMargin <= menu.height + 3*dpi.value) {
+                if (flickable.anchors.topMargin <= menu.height + 10*dpi.value) {
                     flickable.anchors.topMargin -= flickable.contentY - oldContentY;
                 } else {
-                    flickable.anchors.topMargin = menu.height + 3*dpi.value;
+                    flickable.anchors.topMargin = menu.height + 10*dpi.value;
                 }
-                let ch1 = menu.childAt(0, 2*dpi.value + menu.height - flickable.anchors.topMargin)
+                let ch1 = menu.childAt(0, 8*dpi.value + menu.height - flickable.anchors.topMargin)
                 if (ch1) {
                     if (ch1 != oldHighlighted && ch1 instanceof CutieMenuItem) {
                         ch1.down = true;
                         if (oldHighlighted) oldHighlighted.down = false;
-                        oldHighlighted = menu.childAt(0, 2*dpi.value + menu.height - flickable.anchors.topMargin);
+                        oldHighlighted = menu.childAt(0, 8*dpi.value + menu.height - flickable.anchors.topMargin);
                     }
                 } else if (oldHighlighted) {
                     oldHighlighted.down = false;
@@ -49,7 +49,7 @@ Column {
 
         function onDraggingChanged() {
             if (!flickable.dragging) {
-                let ch1 = menu.childAt(0, 2*dpi.value + menu.height - flickable.anchors.topMargin)
+                let ch1 = menu.childAt(0, 8*dpi.value + menu.height - flickable.anchors.topMargin)
                 if (ch1) {
                     if (ch1 instanceof CutieMenuItem) {
                         ch1.clicked();
