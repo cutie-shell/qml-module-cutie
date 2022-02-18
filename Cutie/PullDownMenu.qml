@@ -25,7 +25,7 @@ Column {
         target: flickable
         ignoreUnknownSignals: true
         function onContentYChanged() {
-            if (flickable.contentY < 0 && flickable.dragging) {
+            if (flickable.verticalOvershoot < 0 && flickable.dragging) {
                 if (flickable.anchors.topMargin <= menu.height + 10*dpi.value) {
                     flickable.anchors.topMargin -= flickable.contentY - oldContentY;
                 } else {
