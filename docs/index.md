@@ -31,6 +31,7 @@ import Cutie 1.0
 - [CutiePage](types/page)
 - [CutiePageHeader](#)
 - [CutiePageStack](types/pagestack)
+- [CutieSearchBox](types/searchbox)
 - [CutieSlider](#)
 - [CutieStore](#)
 - [CutieTextField](#)
