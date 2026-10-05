@@ -5,6 +5,7 @@ import Cutie
 SwipeView {
     id: _stackView
     anchors.fill: parent
+    interactive: currentItem ? currentItem.swipeNavigationEnabled : true
 
     Timer {
         id: removeTimer
