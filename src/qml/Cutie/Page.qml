@@ -11,6 +11,7 @@ Page {
 
     property bool backNavigation: SwipeView.index > 0
     property bool isCurrentItem: SwipeView.isCurrentItem
+    property bool swipeNavigationEnabled: true
     property bool isReady: false
 
     Component.onCompleted: {
