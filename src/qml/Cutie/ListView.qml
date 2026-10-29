@@ -1,7 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
 import Cutie
 
 ListView {
@@ -10,6 +8,8 @@ ListView {
     property string floatIconName
     property url floatIconSource
     signal floatAction()
+    reuseItems: true
+    cacheBuffer: height > 0 ? Math.min(height / 2,  500) : 0
     footerPositioning: ListView.OverlayFooter
     footer: Item {
         height: visible ? 100 : 0
